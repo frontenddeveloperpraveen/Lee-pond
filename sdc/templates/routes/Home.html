@@ -1,0 +1,157 @@
+<section class="display pt-3 px-6">
+    {% load static%}
+    <nav class="flex justify-between items-center">
+        <div>
+            <p id="greetings" class="text-normal text-gray-500">Welcome Back,</p>
+            <h2 id="patner-name" class="text-2xl font-bold ">{{username}}</h2>
+        </div>
+        <div>
+
+            <div class=" relative w-contain h-contain p-3 bg-green-500 rounded-xl active:bg-green-600"
+                id="notification_box">
+                <span
+                    class="absolute right-[-8px] top-[-15px] border rounded-full p-1 w-6 h-6 bg-[#F15E22] flex justify-center items-center text-white">{{notification}}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                    fill="#e8eaed">
+                    <path
+                        d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
+                </svg>
+            </div>
+        </div>
+    </nav>
+
+    <div class="banner w-full h-max pb-5 mt-8">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper rounded">
+                <div class="swiper-slide">
+                    <img src="{% static 'svgs/b1.png'%}" alt="">
+                </div>
+                <div class="swiper-slide"> <img src="{% static 'svgs/b2.png'%}" alt=""></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+    </div>
+
+    <main class="flex justify-between text-align px-1">
+        <div>
+            <h3 class="text-normal">Status</h3>
+            <h1 class="text-2xl font-bold" id="status_active">Inactive</h1>
+        </div>
+        <div class="flex text-align mb-2"><label for="toggleFour"
+                class="flex items-center cursor-pointer select-none text-dark">
+                <div class="relative">
+                    <input type="checkbox" id="toggleFour" class="peer sr-only" checked onchange="Activity()" />
+                    <div class="block h-8 rounded-full box bg-gray-800 w-14 peer-checked:bg-primary border">
+                    </div>
+                    <div
+                        class="absolute flex items-center justify-center w-6 h-6 transition bg-white rounded-full dot left-1 top-1 border border-gray-900 peer-checked:translate-x-full peer-checked:bg-gray-100">
+                    </div>
+                </div>
+            </label></div>
+    </main>
+
+    <div class="timmer flex items-center gap-3 justify-center my-4 " style="display: none;" id="clock">
+        <div class="hr p-2 border border-2 rounded">
+            <p id="hr">00</p>
+        </div>
+        <p>:</p>
+        <div class="min p-2 border border-2 rounded">
+            <p id="min">00</p>
+        </div>
+        <p>:</p>
+        <div class="sec p-2 border border-2 rounded">
+            <p id="sec">00</p>
+        </div>
+    </div>
+
+
+
+    <h1 class="tracking-wide text-lg mt-2 font-medium">New Orders</h1>
+    <section id="orderbox " class="mb-[50px]">
+        {% if ongoing_orders|length == 0 and pending_orders|length == 0 %}
+        <h1 class="text-center mt-[50px]">No Order for you</h1>
+        {% else %}
+        {% for i in ongoing_orders %}
+        <div class="flex items-center rounded px-2 py-2 border bg-gray-50 mt-3 active:bg-gray-120 maindiv"
+            onclick="view_order('{{ i.order_no }}')">
+            <div class="w-4/5 flex flex-col gap-3">
+                <p class="font-bold text-lg">{{i.customer_name}}</p>
+                <span class="flex gap-1 items-center w-max rounded-full pr-2 py-1 justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
+                        fill="#f9733d" class="rounded-full">
+                        <path
+                            d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z" />
+                    </svg>
+                    <p>{{ i.distance }}</p>
+                </span>
+                <span>
+                    <p class="tracking-wide">{{ i.order_no }}</p>
+                </span>
+                <span class="items-center justify-center">
+                    {% if i.status == "accepted" or i.status == "picked" %}
+                    <p class="border rounded w-max px-2 py-1 bg-green-500 text-white">Ongoing</p>
+                    {% elif i.status == "assigned" %}
+                    <p class="border rounded w-max px-2 py-1 bg-blue-500 text-white">Assigned to you</p>
+                    {% elif i.status == "cancelled_by_boy" or i.status == "cancelled_by_boy" %}
+                    <p class="border rounded w-max px-2 py-1 bg-red-500 text-white">Cancelled</p>
+                    {% elif i.status == "delievered" %}
+                    <p class="border rounded w-max px-2 py-1 bg-gray-600 text-white">Delievered</p>
+                    {% else %}
+                    <p class="border rounded w-max px-2 py-1 bg-yellow-500 text-white">{{ i.status }}</p>
+                    {% endif %}
+                </span>
+            </div>
+            <div class="w-1/5 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px"
+                    fill="#e8eaed" class="border border-white-900 rounded-full bg-[#F15E22] active:bg-[#f9733d]">
+                    <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
+                </svg>
+            </div>
+        </div>
+        {% endfor %}
+        {% for i in pending_orders %}
+        <div class="flex items-center rounded px-2 py-2 border bg-gray-50 mt-3 active:bg-gray-120 maindiv"
+            onclick="view_order('{{ i.order_no }}')">
+            <div class="w-4/5 flex flex-col gap-3">
+                <p class="font-bold text-lg">{{i.customer_name}}</p>
+                <span class="flex gap-1 items-center w-max rounded-full pr-2 py-1 justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
+                        fill="#f9733d" class="rounded-full">
+                        <path
+                            d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z" />
+                    </svg>
+                    <p>{{ i.distance }}</p>
+                </span>
+                <span>
+                    <p class="tracking-wide">{{ i.order_no }}</p>
+                </span>
+                <span class="items-center justify-center">
+                    {% if i.status == "accepted" or i.status == "picked" %}
+                    <p class="border rounded w-max px-2 py-1 bg-green-500 text-white">Ongoing</p>
+                    {% elif i.status == "assigned" %}
+                    <p class="border rounded w-max px-2 py-1 bg-blue-500 text-white">Assigned to you</p>
+                    {% elif i.status == "cancelled_by_boy" or i.status == "cancelled_by_boy" %}
+                    <p class="border rounded w-max px-2 py-1 bg-red-500 text-white">Cancelled</p>
+                    {% elif i.status == "delievered" %}
+                    <p class="border rounded w-max px-2 py-1 bg-gray-600 text-white">Delievered</p>
+                    {% else %}
+                    <p class="border rounded w-max px-2 py-1 bg-yellow-500 text-white">{{ i.status }}</p>
+                    {% endif %}
+                </span>
+            </div>
+            <div class="w-1/5 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px"
+                    fill="#e8eaed" class="border border-white-900 rounded-full bg-[#F15E22] active:bg-[#f9733d]">
+                    <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
+                </svg>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </section>
+
+    <section class="dummy" class="w-full h-[1vh] bg-red-200">
+        &#8202;
+    </section>
+</section>

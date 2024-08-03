@@ -1,0 +1,82 @@
+<section class="per-order px-5 py-5">
+    <nav class="flex gap-7 justify-start items-center bg-white">
+        <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#000000"
+            onclick="Update_Page('orders')">
+            <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+        </svg>
+        <p class="text-2xl text-gray-500">Order # {{orderno}}</p>
+    </nav>
+    <div>
+        <p class="rounded w-max bg-green-500 px-3 text-white py-1 ml-auto my-2 text-sm text-center">{{status}}</p>
+        {% if status != "Delievered" %}
+        <div style="max-width:100%;list-style:none; transition: none;overflow:hidden;width:500px;height:500px;"
+            class="mt-1 rounded">
+            <div style="max-width:100%;overflow:hidden;color:red;width:500px;height:500px;">
+                <div id="embed-map-display" style="height:100%; width:100%;max-width:100%;"><iframe
+                        style="height:100%;width:100%;border:0;" frameborder="0"
+                        src="https://www.google.com/maps/embed/v1/directions?origin={{c_lat}},{{c_long}}&destination={{d_lat}},{{d_long}}&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
+                </div><a class="my-codefor-googlemap" rel="nofollow" href="https://www.bootstrapskins.com/themes"
+                    id="grab-map-authorization">premium bootstrap themes</a>
+                <style>
+                    #embed-map-display img {
+                        max-height: none;
+                        max-width: none !important;
+                        background: none !important;
+                    }
+                </style>
+            </div>
+            <div style="display:none">
+            </div>
+        </div>
+        {% endif %}
+        {% if status == "Assigned"%}
+        <button class="border w-full h-[50px] bg-[#F15E22] border rounded mt-3 tracking-wide active:bg-[#f9733d]"
+            onclick="Order_Next('{{ orderno }}','accepted')">Accept the Order</button>
+        {% elif status == "Accepted"%}
+        <button class="border w-full h-[50px] bg-green-500 border rounded mt-3 tracking-wide active:bg-green-600"
+            onclick="Order_Next('{{ orderno }}','picked')">Picked the Food</button>
+        {% elif status == "Picked"%}
+        <button class="border w-full h-[50px] bg-orange-500 border rounded mt-3 tracking-wide active:bg-orange-600"
+            onclick="Order_Next('{{ orderno }}','delievered')">Delivered the Food</button>
+        {% elif status == "Delievered"%}
+        <button class="border w-full h-[50px] border rounded mt-3 tracking-wide disabled" disabled>Order
+            Completed</button>
+        {% endif%}
+    </div>
+    <div>
+        <h1 class="text-center my-5 text-xl">Order Details</h1>
+        <div class="name mt-2">
+            <p class="text-gray-500">Customer Name</p>
+            <p class="text-lg font-semibold">{{cname}}</p>
+        </div>
+        <div class="name mt-2">
+            <p class="text-gray-500">Hotel Name</p>
+            <p class="text-lg font-semibold">{{hotel_name}}</p>
+            <div class="mt-2">
+                <p class="text-gray-500">Pickup Address</p>
+                <p class="text-lg font-semibold">{{c_addr}}</p>
+            </div>
+            <div class="mt-2">
+                <p class="text-gray-500">Delievery Address</p>
+                <p class="text-lg font-semibold">{{h_addr}}</p>
+            </div>
+            <div class="mt-2">
+                <p class="text-gray-500">Note</p>
+                <p class="text-lg font-semibold">{{note}}</p>
+            </div>
+            {% if status != "Delievered" %}
+            <div class="mt-4">
+                <div class="flex gap-3">
+                    <button class="w-1/2 border bg-blue-500 py-2 rounded text-white tracking-wide">Call
+                        Shop</button>
+                    <button class="w-1/2 border border-gray-500 rounded">Call
+                        Customer</button>
+                </div>
+                <p>&#8202;</p>
+                <p>&#8202;</p>
+                <p>&#8202;</p>
+
+            </div>
+            {% endif %}
+
+</section>

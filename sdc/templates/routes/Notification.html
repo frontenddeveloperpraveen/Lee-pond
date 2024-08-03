@@ -1,0 +1,28 @@
+<section class="notification px-5 py-5 " id="notification-section">
+    <nav class="flex gap-7 justify-start items-center bg-white">
+        <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#000000"
+            id="backbtn">
+            <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+        </svg>
+        <p class="text-2xl">Notification</p>
+    </nav>
+
+    <main class="mt-5">
+        {% if notify|length != 0%}
+        <div>
+            <p class="font-bold text-xl mb-5">Recent</p>
+            {% for i in notify %}
+            <div class="mb-5 border-b pb-2">
+                <p class="text-lg font-medium text-red-500 mb-1">{{ i.title }}</p>
+                <p>{{ i.message }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        {%else%}
+        <h1 class="text-center">No New Notification</h1>
+        {% endif %}
+        <section class="dummy w-full h-[1.2vh]">
+            &#8202;
+        </section>
+    </main>
+</section>

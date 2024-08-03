@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<body style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);">
+
+    <h1 id="loading">Loading</h1>
+    <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/api/get/base', true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                    // Hide loading animation
+                    document.getElementById('loading').style.display = 'none';
+                    // Replace the entire HTML document with the response
+                    document.open();
+                    document.write(xhr.responseText);
+                    document.close();
+                } else {
+                    // Handle error
+                    document.getElementById('loading').style.display = 'none';
+                    alert('Error fetching data');
+                }
+            }
+        };
+        xhr.send();
+    </script>
+</body>
+
+</html>

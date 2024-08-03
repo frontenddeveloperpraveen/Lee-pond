@@ -1,0 +1,94 @@
+<section class="profile overflow-none mb-10">
+    {% load static %}
+    <div class="flex flex-col items-center h-[100vh] my-5">
+        <div
+            class="relative flex flex-col rounded-[20px] w-[700px] max-w-[95%] mx-auto bg-white bg-clip-border shadow-3xl shadow-shadow-500 px-3">
+            <div class="mb-8 w-full">
+                <h4 class="px-2 text-xl font-bold text-navy-700 ">
+                    General Information
+                </h4>
+                <div class="w-36 h-max mt-3 mx-auto
+                 rounded">
+                    <div class="h-40 rounded  overflow-y-hidden rounded border">
+                        <img class="mt-2 px-2 text-base text-gray-600 w-30 rounded"
+                            src='data:image/jpeg;base64,{{ dp }}'>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute right-0">
+                <form action={% url 'logout' %} method="post">
+                    {% csrf_token %}
+                    <button class="bg-red-500 text-white px-3 py-1 rounded top-0" type="submit">Logout</button>
+                </form>
+            </div>
+
+            <hr>
+            <div class="flex">
+                <div class="w-1/2">
+                    <div class="w-90 mx-auto mt-3">
+                        <small>First Name</small>
+                        <h4 class="font-bold text-wrap-wrap text-medium">{{firstname}}</h4>
+                    </div>
+                    <div class="w-90 mx-auto mt-3">
+                        <small>Employee ID</small>
+                        <h4 class="font-bold text-wrap-wrap text-medium">{{emp_id}}</h4>
+                    </div>
+                    <div class="w-90 mx-auto mt-3">
+                        <small>Aadhar No.</small>
+                        <h4 class="font-bold text-wrap-wrap text-medium">{{aadhar}}</h4>
+                    </div>
+                    <div class="w-90 mx-auto mt-3">
+                        <small>Employee Type</small>
+                        <h4 class="font-bold text-wrap-wrap text-medium">{{emp}}</h4>
+                    </div>
+                    <div class="w-90 mx-auto mt-3">
+                        <small>Phone Number</small>
+                        <h4 class="font-bold text-wrap-wrap text-medium">{{mob}}</h4>
+                    </div>
+                    <div class="w-90 mx-auto mt-3">
+                        <small>Date of Joining</small>
+                        <h4 class="font-bold text-wrap-wrap text-medium">{{doj}}</h4>
+                    </div>
+                    <div class="w-90 mx-auto mt-3">
+                        <small>Account Status</small>
+                        <h4 class="font-bold text-wrap-wrap text-medium text-green-700">Verified</h4>
+                    </div>
+                </div>
+                <div class="w-1/2 pl-2">
+                    <div class="w-90 mx-auto mt-3">
+                        <small>Last Name</small>
+                        <h4 class="font-bold text-wrap-wrap text-medium">{{lastname}}</h4>
+                    </div>
+                    <div class="w-90 mx-auto mt-3">
+                        <small>Age</small>
+                        <h4 class="font-bold text-wrap-wrap text-medium">{{age}} Years old</h4>
+                    </div>
+                    <div class="w-90 mx-auto mt-3">
+                        <small>Plate Number</small>
+                        <h4 class="font-bold text-wrap-wrap text-medium">{{plate}}</h4>
+                    </div>
+                    <div class="w-90 mx-auto mt-3">
+                        <small>City</small>
+                        <h4 class="font-bold text-wrap-wrap text-medium">{{city}}</h4>
+                    </div>
+                    <div class="w-90 mx-auto mt-3">
+                        <small>Email Address</small>
+                        <h4 class="font-bold text-wrap-wrap text-medium overflow-auto" id="email">{{email}}
+                        </h4>
+                    </div>
+                    <div class="w-90 mx-auto mt-3">
+                        <small>Date of Birth</small>
+                        <h4 class="font-bold text-wrap-wrap text-medium">{{dob}}
+                        </h4>
+                    </div>
+                    <div class="w-90 mx-auto mt-3">
+                        <small>Languages</small>
+                        <h4 class="font-bold text-wrap-wrap text-medium">{{language}}</h4>
+                    </div>
+                </div>
+            </div>
+            <h1 class="mt-2 text-center">To change Infomation. Kindly contact the admin.</h1>
+        </div>
+    </div>
+</section>

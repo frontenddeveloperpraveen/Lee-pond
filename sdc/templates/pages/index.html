@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static%}
+
+<head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+
+    <!-- Font Link -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+
+    <!-- Demo styles -->
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+            background-color: #fedec8 !important;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .button-div {
+            width: max-content;
+            margin: 0 auto;
+        }
+
+        .button-div button {
+            width: 45vw;
+            height: 5vh;
+            border-radius: 5px;
+            outline: 0;
+            border: 0;
+            background-color: #F15E22;
+            color: white;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+        button:active {
+            background-color: #f9733d;
+        }
+
+        .infomation {
+            width: 90%;
+            margin: 0 auto;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Swiper -->
+    <div class="container">
+        <div class="pre-image" class="h-30 w-full">
+            <img src="{% static 'svgs/pic1.jpg' %}" alt="" width="100%">
+        </div>
+        <div>
+            <h2 style="text-align: center;">You are offline</h2>
+        </div>
+        <div class="infomation" style="text-align: center;">
+            <p>Earn more money by accepting orders online through the Partner app.</p>
+        </div>
+        <div class="button-div">
+            <a href="{% url 'Home'%}"><button>Go Online</button></a>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js"></script>
+
+    <style>
+        body {
+            border: 0;
+            padding: 0;
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow-x: hidden;
+        }
+
+        div p {
+            font-size: 16px;
+        }
+    </style>
+    <style>
+        .map-generator {
+            max-width: 100%;
+            max-height: 100%;
+            background: none;
+        }
+    </style>
+</head>
+
+<body class="overflow-auto">
+
+    <section class="display pt-3 px-6" hidden>
+
+        <nav class="flex justify-between items-center">
+            <div>
+                <p id="greetings" class="text-normal text-gray-500">Good Morning,</p>
+                <h2 id="patner-name" class="text-2xl font-bold ">Ajay S</h2>
+            </div>
+            <div>
+
+                <div class=" relative w-contain h-contain p-3 bg-green-500 rounded-xl active:bg-green-600">
+                    <span
+                        class="absolute right-[-8px] top-[-15px] border rounded-full p-1 w-6 h-6 bg-[#F15E22] flex justify-center items-center text-white">5</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#e8eaed">
+                        <path
+                            d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
+                    </svg>
+                </div>
+            </div>
+        </nav>
+
+        <div class="banner w-full h-max pb-5 mt-8">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper rounded">
+                    <div class="swiper-slide">
+                        <img src="svgs/b1.png" alt="">
+                    </div>
+                    <div class="swiper-slide"> <img src="svgs/b2.png" alt=""></div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </div>
+
+        <main class="flex justify-between text-align px-1">
+            <div>
+                <h3 class="text-normal">Status</h3>
+                <h1 class="text-2xl font-bold">Active</h1>
+            </div>
+            <div class="flex text-align"><label for="toggleFour"
+                    class="flex items-center cursor-pointer select-none text-dark">
+                    <div class="relative">
+                        <input type="checkbox" id="toggleFour" class="peer sr-only" />
+                        <div class="block h-8 rounded-full box bg-gray-800 w-14 peer-checked:bg-primary border">
+                        </div>
+                        <div
+                            class="absolute flex items-center justify-center w-6 h-6 transition bg-white rounded-full dot left-1 top-1 border border-gray-900 peer-checked:translate-x-full peer-checked:bg-gray-100">
+                        </div>
+                    </div>
+                </label></div>
+        </main>
+
+        <div class="timmer flex items-center gap-3 justify-center my-4 ">
+            <div class="hr p-2 border border-2 rounded">
+                <p>02</p>
+            </div>
+            <p>:</p>
+            <div class="min p-2 border border-2 rounded">
+                <p>03</p>
+            </div>
+            <p>:</p>
+            <div class="sec p-2 border border-2 rounded">
+                <p>02</p>
+            </div>
+        </div>
+
+
+
+        <h1 class="tracking-wide text-lg mt-2 font-medium">New Orders</h1>
+        <section id="orderbox " class="mb-[50px]">
+            <div class="flex items-center rounded px-2 py-2 border bg-gray-50 mt-3 active:bg-gray-120">
+                <div class="w-4/5 flex flex-col gap-3">
+                    <p class="font-bold text-lg">Mohan Prasad J</p>
+                    <span class="flex gap-1 items-center w-max rounded-full pr-2 py-1 justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
+                            fill="#f9733d" class=" rounded-full">
+                            <path
+                                d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z" />
+                        </svg>
+                        <p>77 Km</p>
+                    </span>
+                    <span>
+                        <p class="tracking-wide">30 Minutes</p>
+                    </span>
+                    <span class="items-center justify-center">
+                        <p class="border rounded w-max px-2 py-1 bg-green-500 text-white">Assigned to you</p>
+                    </span>
+                </div>
+                <div class="w-1/5 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px"
+                        fill="#e8eaed" class="border border-white-900 rounded-full bg-[#F15E22] active:bg-[#f9733d]">
+                        <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
+                    </svg>
+                </div>
+            </div>
+            <div class="flex items-center rounded px-2 py-2 border bg-gray-50 mt-3 active:bg-gray-120 ">
+                <div class="w-4/5 flex flex-col gap-3">
+                    <p class="font-bold text-lg">Mohan Prasad J</p>
+                    <span class="flex gap-1 items-center w-max rounded-full pr-2 py-1 justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
+                            fill="#f9733d" class=" rounded-full">
+                            <path
+                                d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z" />
+                        </svg>
+                        <p>77 Km</p>
+                    </span>
+                    <span>
+                        <p class="tracking-wide">30 Minutes</p>
+                    </span>
+                    <span class="items-center justify-center">
+                        <p class="border rounded w-max px-2 py-1 bg-green-500 text-white">Assigned to you</p>
+                    </span>
+                </div>
+                <div class="w-1/5 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px"
+                        fill="#e8eaed" class="border border-white-900 rounded-full bg-[#F15E22] active:bg-[#f9733d]">
+                        <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
+                    </svg>
+                </div>
+            </div>
+            <div class="flex items-center rounded px-2 py-2 border bg-gray-50 mt-3 active:bg-gray-120">
+                <div class="w-4/5 flex flex-col gap-3">
+                    <p class="font-bold text-lg">Mohan Prasad J</p>
+                    <span class="flex gap-1 items-center w-max rounded-full pr-2 py-1 justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
+                            fill="#f9733d" class=" rounded-full">
+                            <path
+                                d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z" />
+                        </svg>
+                        <p>77 Km</p>
+                    </span>
+                    <span>
+                        <p class="tracking-wide">30 Minutes</p>
+                    </span>
+                    <span class="items-center justify-center">
+                        <p class="border rounded w-max px-2 py-1 bg-green-500 text-white">Assigned to you</p>
+                    </span>
+                </div>
+                <div class="w-1/5 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px"
+                        fill="#e8eaed" class="border border-white-900 rounded-full bg-[#F15E22] active:bg-[#f9733d]">
+                        <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
+                    </svg>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="dummy" class="w-full h-[1vh] bg-red-200">
+            &#8202;
+        </section>
+    </section>
+
+    <section class="notification px-5 py-5 hidden">
+        <nav class="flex gap-7 justify-start items-center bg-white">
+            <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#000000">
+                <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+            </svg>
+            <p class="text-2xl">Notification</p>
+        </nav>
+
+        <main class="mt-5">
+            <div>
+                <p class="font-bold text-xl mb-5">Today</p>
+                <div class="mb-5 border-b pb-2">
+                    <p class="text-lg font-medium text-red-500 mb-1">Message from Admin</p>
+                    <p>Great, Work.. Come and meet me in office by 5pm</p>
+                </div>
+                <div class="mb-5 border-b pb-2">
+                    <p class="text-lg font-medium text-red-500 mb-1">Message from Admin</p>
+                    <p>Great, Work.. Come and meet me in office by 5pm. survivevaa lalalalal i[po na enna pannuve..</p>
+                </div>
+
+            </div>
+            <section class="dummy" class="w-full h-[1.2vh] bg-red-200">
+                &#8202;
+            </section>
+        </main>
+
+    </section>
+
+    <section class="profile overflow-none ">
+        <div class="flex flex-col items-center h-[100vh] my-5">
+            <div
+                class="relative flex flex-col rounded-[20px] w-[700px] max-w-[95%] mx-auto bg-white bg-clip-border shadow-3xl shadow-shadow-500 px-3">
+                <div class="mb-8 w-full">
+                    <h4 class="px-2 text-xl font-bold text-navy-700 ">
+                        General Information
+                    </h4>
+                    <div class="w-36 h-max mt-3 mx-auto
+                     rounded">
+                        <div class="h-40 rounded  overflow-y-hidden">
+                            <img class="mt-2 px-2 text-base text-gray-600 w-30 rounded"
+                                src="data:image/jpeg;base64,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">
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="grid grid-cols-2 gap-4 px-2 w-full items-center justify-center">
+                    <div
+                        class="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
+                        <p class="text-sm text-gray-600">Name</p>
+                        <p class="text-base font-medium text-navy-700 dark:text-white">
+                            Ajay S
+                        </p>
+                    </div>
+                    <div
+                        class="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
+                        <p class="text-sm text-gray-600">Emp ID</p>
+                        <p class="text-base font-medium text-navy-700 dark:text-white">
+                            Emp 77885
+                        </p>
+                    </div>
+
+                    <div
+                        class="flex flex-col justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
+                        <p class="text-sm text-gray-600">Bike Number</p>
+                        <p class="text-base font-medium text-navy-700 dark:text-white">
+                            Tn85K2522
+                        </p>
+                    </div>
+
+                    <div
+                        class="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
+                        <p class="text-sm text-gray-600">Aadhar number</p>
+                        <p class="text-base font-medium text-navy-700 dark:text-white">
+                            658745555555555
+                        </p>
+                    </div>
+
+                    <div
+                        class="flex flex-col justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
+                        <p class="text-sm text-gray-600">Mobile No.</p>
+                        <p class="text-base font-medium text-navy-700 dark:text-white">
+                            902598135X
+                        </p>
+                    </div>
+                    <div
+                        class="flex flex-col justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
+                        <p class="text-sm text-gray-600">Email ID.</p>
+                        <p class="text-base font-medium text-navy-700 dark:text-white">
+                            ajaysi###@gmail.com
+                        </p>
+                    </div>
+
+                    <div
+                        class="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
+                        <p class="text-sm text-gray-600">Languages</p>
+                        <p class="text-base font-medium text-navy-700 dark:text-white">
+                            Tamil, Kaatuvaasi
+                        </p>
+                    </div>
+                    <div
+                        class="flex flex-col justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
+                        <p class="text-sm text-gray-600">Birthday</p>
+                        <p class="text-base font-medium text-navy-700 dark:text-white">
+                            20 July 1986
+                        </p>
+                    </div>
+
+                    <div
+                        class="flex flex-col justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
+                        <p class="text-sm text-gray-600">Joining Date</p>
+                        <p class="text-base font-medium text-navy-700 dark:text-white">
+                            20 July 2585
+                        </p>
+                    </div>
+
+                    <div
+                        class="flex flex-col justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
+                        <p class="text-sm text-gray-600">Employee Type</p>
+                        <p class="text-base font-medium text-navy-700 dark:text-white">
+                            Permanent
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="display pt-3 px-6" hidden>
+        <h1 class="text-2xl font-medium mb-5">Order Details</h1>
+        <div class="flex justify-evenly">
+            <h1 class="tracking-wide mt-2 font-medium">Pending Orders</h1>
+            <h1 class="tracking-wide mt-2 font-medium text-gray-500">Past Orders</h1>
+        </div>
+        <section id="orderbox " class="mb-[50px]">
+            <div class="flex items-center rounded px-2 py-2 border bg-gray-50 mt-3 active:bg-gray-120">
+                <div class="w-4/5 flex flex-col gap-3">
+                    <p class="font-bold text-lg">Mohan Prasad J</p>
+                    <span class="flex gap-1 items-center w-max rounded-full pr-2 py-1 justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
+                            fill="#f9733d" class=" rounded-full">
+                            <path
+                                d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z" />
+                        </svg>
+                        <p>77 Km</p>
+                    </span>
+                    <span>
+                        <p class="tracking-wide">30 Minutes</p>
+                    </span>
+                    <span class="items-center justify-center">
+                        <p class="border rounded w-max px-2 py-1 bg-green-500 text-white">Assigned to you</p>
+                    </span>
+                </div>
+                <div class="w-1/5 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px"
+                        fill="#e8eaed" class="border border-white-900 rounded-full bg-[#F15E22] active:bg-[#f9733d]">
+                        <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
+                    </svg>
+                </div>
+            </div>
+            <div class="flex items-center rounded px-2 py-2 border bg-gray-50 mt-3 active:bg-gray-120 ">
+                <div class="w-4/5 flex flex-col gap-3">
+                    <p class="font-bold text-lg">Mohan Prasad J</p>
+                    <span class="flex gap-1 items-center w-max rounded-full pr-2 py-1 justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
+                            fill="#f9733d" class=" rounded-full">
+                            <path
+                                d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z" />
+                        </svg>
+                        <p>77 Km</p>
+                    </span>
+                    <span>
+                        <p class="tracking-wide">30 Minutes</p>
+                    </span>
+                    <span class="items-center justify-center">
+                        <p class="border rounded w-max px-2 py-1 bg-green-500 text-white">Assigned to you</p>
+                    </span>
+                </div>
+                <div class="w-1/5 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px"
+                        fill="#e8eaed" class="border border-white-900 rounded-full bg-[#F15E22] active:bg-[#f9733d]">
+                        <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
+                    </svg>
+                </div>
+            </div>
+            <div class="flex items-center rounded px-2 py-2 border bg-gray-50 mt-3 active:bg-gray-120">
+                <div class="w-4/5 flex flex-col gap-3">
+                    <p class="font-bold text-lg">Mohan Prasad J</p>
+                    <span class="flex gap-1 items-center w-max rounded-full pr-2 py-1 justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
+                            fill="#f9733d" class=" rounded-full">
+                            <path
+                                d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z" />
+                        </svg>
+                        <p>77 Km</p>
+                    </span>
+                    <span>
+                        <p class="tracking-wide">30 Minutes</p>
+                    </span>
+                    <span class="items-center justify-center">
+                        <p class="border rounded w-max px-2 py-1 bg-green-500 text-white">Assigned to you</p>
+                    </span>
+                </div>
+                <div class="w-1/5 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px"
+                        fill="#e8eaed" class="border border-white-900 rounded-full bg-[#F15E22] active:bg-[#f9733d]">
+                        <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
+                    </svg>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="dummy" class="w-full h-[1vh] bg-red-200">
+            &#8202;
+        </section>
+    </section>
+
+
+    <section class="per-order px-5 py-5 hidden">
+        <nav class="flex gap-7 justify-start items-center bg-white">
+            <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#000000">
+                <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+            </svg>
+            <p class="text-2xl text-gray-500">Order #394838743873</p>
+        </nav>
+        <div>
+            <p class="rounded w-max bg-green-500 px-3 text-white py-1 ml-auto my-2 text-sm">Ongoing</p>
+            <div style="max-width:100%;list-style:none; transition: none;overflow:hidden;width:500px;height:500px;"
+                class="mt-1 rounded">
+                <div id="embedded-map-display" style="height:100%; width:100%;max-width:100%;"><iframe
+                        style="height:100%;width:100%;border:0;" frameborder="0"
+                        src="https://www.google.com/maps/embed/v1/directions?origin=sehore&destination=vit+bhopal&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
+                </div><a class="google-map-code-enabler" rel="nofollow" href="https://www.bootstrapskins.com/themes"
+                    id="get-map-data">premium bootstrap themes</a>
+            </div>
+            <button
+                class="border w-full h-[50px] bg-[#F15E22] border rounded mt-3 tracking-wide active:bg-[#f9733d]">Picked
+                the
+                Food</button>
+        </div>
+        <div>
+            <h1 class="text-center my-5 text-xl">Order Details</h1>
+            <div class="name mt-2">
+                <p class="text-gray-500">Customer Name</p>
+                <p class="text-lg font-semibold">Praveen KR</p>
+            </div>
+            <div class="name mt-2">
+                <p class="text-gray-500">Hotel Name</p>
+                <p class="text-lg font-semibold">Soumyadeep Susi Kadai</p>
+
+                <div class="mt-2">
+                    <p class="text-gray-500">Pickup Address</p>
+                    <p class="text-lg font-semibold">498, Vitbhaop,shbh Stret, vivekandnada kuruku theru, sudden
+                        appartment,
+                        thmirumullaivoil, chennai,
+                        sehore, bhopal, opposiue to victory petril bunk</p>
+                </div>
+                <div class="mt-2">
+                    <p class="text-gray-500">Delievery Address</p>
+                    <p class="text-lg font-semibold">498, Vitbhaop,shbh Stret, vivekandnada kuruku theru, sudden
+                        appartment,
+                        thmirumullaivoil, chennai,
+                        sehore, bhopal, opposiue to victory petril bunk</p>
+                </div>
+                <div class="mt-2">
+                    <p class="text-gray-500">Distance Total</p>
+                    <p class="text-lg font-semibold">45+25 = 70KM</p>
+                </div>
+                <div class="mt-4">
+                    <div class="flex gap-3">
+                        <button class="w-1/2 border bg-blue-500 py-2 rounded text-white tracking-wide">Call
+                            Shop</button>
+                        <button class="w-1/2 border border-gray-500 rounded">Call Customer</button>
+                    </div>
+                    <p>&#8202;</p>
+                    <p>&#8202;</p>
+                    <p>&#8202;</p>
+
+                </div>
+
+    </section>
+
+    <section class="footer w-full fixed bottom-0 ">
+        <footer class="bg-white w-full mx-auto pt-2 ">
+            <div class="flex justify-evenly items-center w-full">
+                <div class="flex flex-col justify-center items-center gap-1">
+                    <i class="fa-solid fa-house fa-lg"></i>
+                    <!-- https://fontawesome.com/icons/house?f=classic&s=solid -->
+                    <p>Home</p>
+                </div>
+                <div class="flex flex-col justify-center items-center gap-1">
+                    <i class="fa-solid fa-truck fa-lg"></i>
+                    <!-- https://fontawesome.com/icons/truck?f=classic&s=solid -->
+                    <p>Orders</p>
+                </div>
+                <div class="flex flex-col justify-center items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#000000">
+                        <path
+                            d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
+                    </svg>
+                    <!-- https://fontawesome.com/icons/book?f=classic&s=solid -->
+                    <p>Notification</p>
+                </div>
+                <div class="flex flex-col justify-center items-center gap-1">
+                    <i class="fa-solid fa-user fa-lg"></i>
+                    <!-- https://fontawesome.com/icons/user?f=classic&s=solid -->
+                    <p>Profile</p>
+                </div>
+            </div>
+        </footer>
+    </section>
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            autoplay: {
+                delay: 5000,
+            },
+        });
+    </script>
+    <script src="home.js">
+    </script>
+</body>
+
+
+</html>
